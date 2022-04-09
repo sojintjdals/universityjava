@@ -9,9 +9,9 @@ public class question6 {
         System.out.print("단어나 문장을 입력하세요: ");
         String word = scanner.nextLine();
         scanner.close();
-        System.out.println("길이: " + word.length());
-        System.out.println("마지막글자: " + word.substring(word.length() - 1));
-        System.out.println("첫글자: " + word.substring(0, 1));
+        System.out.println();
+        System.out.println("길이: " + word.length() + "\n마지막글자: "
+                + word.substring(word.length() - 1) + "\n첫글자: " + word.substring(0, 1));
 
     }
 
