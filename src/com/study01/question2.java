@@ -2,7 +2,7 @@ package com.study01;
 
 import java.util.Scanner;
 
-    public class gugudan {
+    public class question2 {
         public static void main(String[] args) {
             // write your code here
 
