@@ -1,10 +1,9 @@
 package com.study02;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class question4 {
+public class Question4 {
 
     static Scanner scanner = new Scanner(System.in);
 
