@@ -11,7 +11,7 @@ public class Sample_2_1 {
         ArrayList grade = new ArrayList();
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < 5; i++){
-            System.out.println(i+1 + "번째 성적을 입력해주세요: ");
+            System.out.println(i + 1 + "번째 성적을 입력해주세요: ");
             int inputNum = scanner.nextInt();
             grade.add(inputNum);
         }
