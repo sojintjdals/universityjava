@@ -15,6 +15,7 @@ public class FileManageClass {
         while (true){
             FileManageClass file = new FileManageClass();
             FileWrite write = new FileWrite();
+            FileRead read = new FileRead();
             file.menu();
             Scanner scanner = new Scanner(System.in);
             System.out.print("선택: ");
@@ -24,6 +25,7 @@ public class FileManageClass {
                 write.fileWrite();
             }else if (choice.equals("2")){
                 System.out.println("[메모 읽기]");
+                read.fileRead();
             }else if (choice.equals("3")){
                 System.out.println("[메모 삭제]");
             }else if (choice.equals("4")){
