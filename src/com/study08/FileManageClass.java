@@ -16,6 +16,7 @@ public class FileManageClass {
             FileManageClass file = new FileManageClass();
             FileWrite write = new FileWrite();
             FileRead read = new FileRead();
+            FileDelete del = new FileDelete();
             file.menu();
             Scanner scanner = new Scanner(System.in);
             System.out.print("선택: ");
@@ -28,6 +29,7 @@ public class FileManageClass {
                 read.fileRead();
             }else if (choice.equals("3")){
                 System.out.println("[메모 삭제]");
+                del.fileDelete();
             }else if (choice.equals("4")){
                 System.out.println("[종료]");
                 break;
