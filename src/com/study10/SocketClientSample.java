@@ -1,11 +1,9 @@
-package com.study09;
+package com.study10;
 
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.Date;
+import java.util.Scanner;
 
 public class SocketClientSample {
     public static void main(String[] args) {
@@ -14,10 +12,13 @@ public class SocketClientSample {
     }
 
     public void sendSocketSample() {
-        for (int loop = 0; loop < 3; loop++){
-            sendSocketData("I liked java at " + new Date());
+        Scanner scanner = new Scanner(System.in);
+        String word = "";
+        while (true){
+            System.out.print("연결: ");
+            word = scanner.nextLine();
+            sendSocketData(word);
         }
-        sendSocketData("EXIT");
     }
 
     public void sendSocketData(String data) {
@@ -33,6 +34,18 @@ public class SocketClientSample {
             byte[] bytes = data.getBytes();
             out.write(bytes);
             System.out.println("Client:Sent data");
+
+            InputStream inputStream = socket.getInputStream();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(inputStream));
+            String bye = null;
+            StringBuilder receivedData = new StringBuilder();
+            while ((bye = in.readLine()) != null) {
+                receivedData.append(bye);
+            }
+            System.out.println(receivedData.toString());
+
+            in.close();
             out.close();
         } catch (Exception e) {
             e.printStackTrace();

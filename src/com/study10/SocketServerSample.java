@@ -1,9 +1,6 @@
-package com.study09;
+package com.study10;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -27,20 +24,30 @@ public class SocketServerSample {
                         new InputStreamReader(stream));
                 String data = null;
                 StringBuilder receivedData = new StringBuilder();
+                System.out.println("22222222222222222222222222");
                 while ((data = in.readLine()) != null) {
                     receivedData.append(data);
                 }
-                System.out.println("Received data:" + receivedData);
+
+
+                System.out.println("Received data:[" + receivedData+"]");
+                if (receivedData.toString().equals("exit")) {
+                    String bye = "bye!";
+                    byte[] bytes = bye.getBytes();
+                    OutputStream out = client.getOutputStream();
+                    BufferedOutputStream bufferOut = new BufferedOutputStream(out);
+                    bufferOut.write(bytes);
+                }else{
+                    System.out.println("asdfasdf");
+                }
+
                 in.close();
                 stream.close();
                 client.close();
-                if (receivedData != null && "EXIT".equals(receivedData.toString())) {
-                    System.out.println("Stop SocketServer");
-                    break;
-                }
+
                 System.out.println("----------");
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (server!=null){
