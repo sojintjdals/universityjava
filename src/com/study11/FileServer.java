@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import static java.io.File.separator;
 
@@ -18,6 +19,8 @@ public class FileServer {
         Socket client = null;
         try {
             server = new ServerSocket(9999);
+            String fileName = "서버파일작성테스트";
+            String filePath = "D:" + separator + "filetest" + separator + fileName + ".txt";
             while (true) {
                 System.out.println("Server:Waiting for request.");
                 client = server.accept();   // 접근
@@ -27,6 +30,7 @@ public class FileServer {
                 BufferedReader in = new BufferedReader(new InputStreamReader(stream));             // 읽어
                 String data = in.readLine();
                 System.out.println("data: " + data);
+                String[] list = null;
                 StringBuffer sb = new StringBuffer();
                 sb.append(data);
                 System.out.println(sb);
