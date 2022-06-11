@@ -37,6 +37,7 @@ public class SocketServerSample {
                     OutputStream out = client.getOutputStream();
                     BufferedOutputStream bufferOut = new BufferedOutputStream(out);
                     bufferOut.write(bytes);
+
                 }else{
                     System.out.println("asdfasdf");
                 }
